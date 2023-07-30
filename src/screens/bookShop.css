@@ -1,0 +1,22 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffffff, #d9dfff); /* Gradient background */
+}
+
+.book-shop-container {
+    max-width: 800px;
+    margin: auto auto;
+    padding: 20px;
+    text-align: center; /* Center align the content */
+    flex-direction: column; /* vertically */
+}
+
+.book-shop-title {
+    font-family: 'Pacifico', cursive; /* Apply a custom font to the title */
+    font-size: 136px; /* Increase the font size */
+    color: #63eecd; /* Text color */
+    padding: 10px 20px; /* Add padding to the title */
+    margin-bottom: 20px; /* Add some space below the title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0.2, 0.65); /* Text shadow */
+}

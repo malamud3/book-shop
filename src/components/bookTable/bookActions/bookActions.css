@@ -1,0 +1,82 @@
+
+/* bookActions.css */
+div {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+    color: #fff;
+}
+
+.read {
+    background-color: #007bff;
+}
+
+.update {
+    background-color: #ffa500;
+}
+
+.delete {
+    background-color: #dc3545;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    button {
+        font-size: 12px;
+    }
+}
+.book-actions {
+    position: relative;
+}
+.book-popup {
+    position: absolute;
+    top: -150%; /* Adjust the top value to position the popup relative to the "Read" button */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 300px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0s 0.2s; /* Add a transition for smooth animation */
+}
+.book-actions .book-popup {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s; /* Add a transition to make the popup appear smoothly */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}

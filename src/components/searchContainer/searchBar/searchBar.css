@@ -1,0 +1,83 @@
+/* searchBar.css */
+.searchBar-container {
+    position: relative; /* Create a positioning context for the cancel button */
+    display: flex; /* Display the children in a row */
+    justify-content: space-between; /* Space elements evenly between the container */
+}
+.searchBar {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+}
+
+input {
+    width: 100%;
+    padding: 8px 2px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.book-container {
+    flex: 1;
+    font-size: 16px;
+}
+
+.button-plus {
+    margin-left: 10px;
+    border-radius: 50%;
+}
+
+button {
+    padding: 6px 12px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.add-selected-book {
+    margin-top: 10px;
+}
+
+/* Position the "Cancel" button on top */
+.cancel-button {
+    position: absolute;
+    top: 15px; /* Adjust this value to control the vertical positioning */
+    left: 382px;
+    /* No need to set background-color: transparent; as it is already transparent by default */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .searchBar {
+        max-width: none;
+    }
+
+    .button-plus {
+        margin-left: 5px;
+    }
+}
