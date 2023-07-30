@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from './searchBar/searchBar';
 import bookService from '../../networking/bookService';
 import { Book } from '../../models/book';
+import './SearchContainer.css'
 
 interface SearchContainerProps {
     setBooks: React.Dispatch<React.SetStateAction<Book[]>>;
@@ -22,7 +23,6 @@ const SearchContainer: React.FC<SearchContainerProps> = ({ setBooks }) => {
 
     const selectBook = (book: Book) => {
         setSelectedBook(book);
-        showAlert(); // Show alert when a book is added
     };
 
     const addSelectedBook = () => {
@@ -30,10 +30,6 @@ const SearchContainer: React.FC<SearchContainerProps> = ({ setBooks }) => {
             setBooks((prevBooks) => [...prevBooks, selectedBook]);
             setSelectedBook(null);
         }
-    };
-
-    const showAlert = () => {
-        alert('Book added successfully!');
     };
 
     const setShowSearchBar = (show: boolean) => {

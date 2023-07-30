@@ -11,19 +11,12 @@ interface SearchBarProps {
     setShowSearchBar: (show: boolean) => void;
 }
 
-interface SearchBarProps {
-    searchBook: (searchTerm: string) => void;
-    searchResults: Book[];
-    selectBook: (book: Book) => void; // Updated to directly add book to the table
-    selectedBook?: Book; // Make it optional
-    setShowSearchBar: (show: boolean) => void;
-}
-
 const SearchBar: React.FC<SearchBarProps> = ({
                                                  searchBook,
                                                  searchResults,
-                                                 selectBook, // Updated to directly add book to the table
+                                                 selectBook,
                                                  selectedBook,
+                                                 addSelectedBook,
                                                  setShowSearchBar,
                                              }) => {
     return (
@@ -37,15 +30,16 @@ const SearchBar: React.FC<SearchBarProps> = ({
                                 {book.title}
                             </div>
                             <div className="button-plus">
-                                <button onClick={() => {
-                                    selectBook(book); // Call selectBook directly to add the book to the table
-                                    setShowSearchBar(false); // Close the search bar after adding the book
-                                    alert('Book added successfully!'); // Show alert when a book is added
-                                }}>+</button> {/* Call selectBook directly */}
+                                <button onClick={() => selectBook(book)}>+</button>
                             </div>
                         </li>
                     ))}
                 </ul>
+                {selectedBook && (
+                    <div className="add-selected-book">
+                        <button onClick={addSelectedBook}>Add Selected Book</button>
+                    </div>
+                )}
             </div>
             <div className="cancel-button">
                 <button onClick={() => setShowSearchBar(false)}>X</button>

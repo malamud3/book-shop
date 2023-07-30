@@ -18,10 +18,10 @@ const BookShop: React.FC = () => {
             <h1 className="book-shop-title">Book Shop</h1>
 
             {/* Pass showAlert prop to the SearchContainer */}
-            <SearchContainer setBooks={setBooks} />
+            <SearchContainer setBooks={setBooks}/>
 
             <BookTable books={books} deleteBook={deleteBook} />
         </div>
     );
 };
-export default BookTable;
+export default BookShop;
