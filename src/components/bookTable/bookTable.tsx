@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import './bookTable.css';
+import './bookCardView.css'
 import { Book } from '../../models/book';
 import BookActions from './bookActions/bookActions';
 import CardBook from "../cardBook/cardBook";
@@ -7,9 +8,10 @@ import CardBook from "../cardBook/cardBook";
 interface BookTableProps {
     books: Book[];
     deleteBook: (bookId: string) => void;
+    cardStyle?: boolean;
 }
 
-const BookTable: React.FC<BookTableProps> = ({ books, deleteBook }) => {
+const BookTable: React.FC<BookTableProps> = ({ books, deleteBook, cardStyle }) => {
     const [selectedBook, setSelectedBook] = React.useState<Book | null>(null);
 
     const handleReadBook = (book: Book) => {

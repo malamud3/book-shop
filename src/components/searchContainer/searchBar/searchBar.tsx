@@ -1,21 +1,16 @@
 import React from 'react';
 import './searchBar.css';
-import {Book} from "../../../models/book";
+import { Book } from '../../../models/book';
 
 interface SearchBarProps {
     searchBook: (searchTerm: string) => void;
     searchResults: Book[];
-    selectBook: (book: Book) => void;
-    selectedBook?: Book; // Make it optional
-    addSelectedBook: () => void;
+    addSelectedBook: (book: Book) => void;
     setShowSearchBar: (show: boolean) => void;
 }
-
 const SearchBar: React.FC<SearchBarProps> = ({
                                                  searchBook,
                                                  searchResults,
-                                                 selectBook,
-                                                 selectedBook,
                                                  addSelectedBook,
                                                  setShowSearchBar,
                                              }) => {
@@ -30,16 +25,17 @@ const SearchBar: React.FC<SearchBarProps> = ({
                                 {book.title}
                             </div>
                             <div className="button-plus">
-                                <button onClick={() => selectBook(book)}>+</button>
+                                <button onClick={() => {
+                                    addSelectedBook(book)
+                                    setShowSearchBar(false)
+                                }
+                                }> {/* Pass currentBooks to addSelectedBook */}
+                                    +
+                                </button>
                             </div>
                         </li>
                     ))}
                 </ul>
-                {selectedBook && (
-                    <div className="add-selected-book">
-                        <button onClick={addSelectedBook}>Add Selected Book</button>
-                    </div>
-                )}
             </div>
             <div className="cancel-button">
                 <button onClick={() => setShowSearchBar(false)}>X</button>
