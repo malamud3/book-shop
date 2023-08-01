@@ -1,57 +1,24 @@
-import React, { useState } from 'react';
+// BookActions.tsx
+import React from 'react';
 import './bookActions.css';
-import CardBook from "../../cardBook/cardBook";
+import { Book } from '../../../models/book';
+import ReadButton from './btns/readButton';
+import UpdateButton from './btns/updateBtn/updateButton';
+import DeleteButton from './btns/deleteButton';
 
 interface BookActionsProps {
-    bookTitle: string;
-    img: string;
-    description?: string;
-    onRead: () => void;
-    onUpdate: () => void;
-    onDelete: () => void;
+    book: Book;
 }
 
-const BookActions: React.FC<BookActionsProps> = ({
-                                                     bookTitle,
-                                                     img,
-                                                     description,
-                                                     onUpdate,
-                                                     onDelete,
-                                                 }) => {
-    const [showModal, setShowModal] = useState(false);
-
-    const handleReadClick = () => {
-        setShowModal(true);
-    };
-
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
+const BookActions: React.FC<BookActionsProps> = ({ book }) => {
 
     return (
         <div className="book-actions">
-            <button className="read" onClick={handleReadClick}>
-                Read
-            </button>
-            <button className="update" onClick={onUpdate}>
-                Update
-            </button>
-            <button className="delete" onClick={onDelete} >
-                Delete
-            </button>
-
-            {/* Show the CardBook component as a modal when "Read" button is clicked */}
-            {showModal && (
-                <CardBook
-                    title={bookTitle}
-                    img={img}
-                    description={description}
-                    onClose={handleCloseModal}
-                />
-            )}
+            <ReadButton book={book} />
+            <UpdateButton book={book}/>
+            <DeleteButton />
         </div>
     );
 };
 
 export default BookActions;
-

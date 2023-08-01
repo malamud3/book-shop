@@ -5,5 +5,5 @@ export interface Book {
     url: string;
     description?: string;
     price?: number;
-    rate?: number;
+    rate: number;
 }

@@ -1,11 +1,11 @@
-import React from 'react';
-import './matrixBookTable.css'; // Rename the CSS file to matrixBookTable.css
-import '../CardTableView/cardTableView.css'; // Import the CSS file for CardTableView
+import React, { useState, useCallback } from 'react';
+import './matrixBookTable.css';
+import '../CardTableView/cardTableView.css';
 import BookActions from '../bookActions/bookActions';
 import CardBook from '../../cardBook/cardBook';
 import { Book } from '../../../models/book';
 import CardTableView from '../CardTableView/cardTableView';
-import {deleteBook, useUpdateUI} from "../../../bll/bookLogic"; // Import the CardTableView component
+import {  useUpdateUI } from '../../../dal/bookService';
 
 interface MatrixBookTableProps {
     cardStyle?: boolean;
@@ -13,27 +13,16 @@ interface MatrixBookTableProps {
 }
 
 const MatrixBookTable: React.FC<MatrixBookTableProps> = ({ cardStyle, books }) => {
-    const [selectedBook, setSelectedBook] = React.useState<Book | null>(null);
-    const setBooks = React.useState<Book[]>([])[1]; // Declare setBooks function
+    const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+    const [booksState, setBooks] = useState<Book[]>([]);
 
     useUpdateUI(setBooks);
 
-    const handleReadBook = (book: Book) => {
-        setSelectedBook(book);
-    };
 
-    const handleDeleteBook = async (bookId: string) => {
-        try {
-            await deleteBook(bookId, setBooks);
-            setSelectedBook(null);
-        } catch (error) {
-            console.error('Error deleting book:', error);
-        }
-    };
 
     return (
         <div>
-            {cardStyle ? ( // Render CardTableView when cardStyle is true
+            {cardStyle ? (
                 <CardTableView books={books} />
             ) : (
                 <table>
@@ -53,12 +42,7 @@ const MatrixBookTable: React.FC<MatrixBookTableProps> = ({ cardStyle, books }) =
                             <td>{book.price}</td>
                             <td>
                                 <BookActions
-                                    bookTitle={book.title}
-                                    img={book.url}
-                                    description={book.description}
-                                    onRead={() => handleReadBook(book)}
-                                    onUpdate={() => alert(`Update book: ${book.price}`)}
-                                    onDelete={() => handleDeleteBook(book.id)}
+                                    book={book}
                                 />
                             </td>
                         </tr>
@@ -72,6 +56,7 @@ const MatrixBookTable: React.FC<MatrixBookTableProps> = ({ cardStyle, books }) =
                     title={selectedBook.title}
                     img={selectedBook.url}
                     description={selectedBook.description}
+                    rate={selectedBook.rate ?? 0}
                     onClose={() => setSelectedBook(null)}
                 />
             )}

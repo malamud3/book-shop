@@ -2,7 +2,6 @@ import { Book } from "../models/book";
 
 const dbManager = {
 
-
     addBook: async (bookToAdd: Book): Promise<void> => {
         try {
             // Get existing books from localStorage (if any).
@@ -20,7 +19,7 @@ const dbManager = {
         }
     },
 
-    modifyBookPrice: async (bookId: string, newPrice: number): Promise<void> => {
+    modifyBookRate: async (bookId: string, newRate: number): Promise<void> => {
         try {
             // Get existing books from localStorage (if any).
             const existingBooksJson = localStorage.getItem('books');
@@ -34,7 +33,7 @@ const dbManager = {
             }
 
             // Update the price of the book with the new price.
-            bookToUpdate.price = newPrice;
+            bookToUpdate.rate = newRate;
 
             // Convert the updated books array to JSON and store it in localStorage.
             localStorage.setItem('books', JSON.stringify(existingBooks));

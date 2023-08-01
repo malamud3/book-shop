@@ -42,20 +42,3 @@ body {
     background-color: white;
     color: blue;
 }
-
-/* Styles specifically for mobile devices */
-@media (max-width: 767px) {
-    .book-shop-title {
-        font-size: 64px; /* Reduce the font size for mobile */
-    }
-
-    .view-toggle-btn {
-        font-size: 16px; /* Reduce the font size for the buttons on mobile */
-        background-color: red; /* Change the background color to make it "stink" on mobile */
-    }
-
-    .view-toggle-btn.active {
-        background-color: red;
-        color: white;
-    }
-}

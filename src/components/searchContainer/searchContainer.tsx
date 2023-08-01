@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import { Book } from '../../models/book';
-import {searchBook, addSelectedBook} from '../../bll/bookLogic';
+import {searchBook, addSelectedBook} from '../../dal/bookService';
 import './searchContainer.css';
 import SearchBar from "./searchBar/searchBar";
 

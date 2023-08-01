@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Book } from '../models/book';
 import SearchContainer from '../components/searchContainer/searchContainer';
 import './bookShop.css';
-import { useUpdateUI } from '../bll/bookLogic';
+import { useUpdateUI } from '../dal/bookService';
 import CardTableView from '../components/bookTable/CardTableView/cardTableView';
 import MatrixTableView from '../components/bookTable/MatrixTableView/matrixBookTable';
 

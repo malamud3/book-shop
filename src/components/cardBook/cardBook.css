@@ -58,7 +58,19 @@ img {
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
 
+p:last-child {
+    margin-bottom: 0;
+}
+.rate {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
 /* Media queries for responsiveness */
 @media (max-width: 600px) {
     .modal-content {
