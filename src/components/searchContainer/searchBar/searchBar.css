@@ -63,12 +63,10 @@ button:hover {
     margin-top: 10px;
 }
 
-/* Position the "Cancel" button on top */
 .cancel-button {
     position: absolute;
-    top: 15px; /* Adjust this value to control the vertical positioning */
-    left: 382px;
-    /* No need to set background-color: transparent; as it is already transparent by default */
+    top: 12px;
+    left: 375px;
 }
 
 /* Media queries for responsiveness */

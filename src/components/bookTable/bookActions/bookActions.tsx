@@ -36,7 +36,7 @@ const BookActions: React.FC<BookActionsProps> = ({
             <button className="update" onClick={onUpdate}>
                 Update
             </button>
-            <button className="delete" onClick={onDelete}>
+            <button className="delete" onClick={onDelete} >
                 Delete
             </button>
 

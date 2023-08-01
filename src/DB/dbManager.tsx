@@ -1,6 +1,8 @@
 import { Book } from "../models/book";
 
 const dbManager = {
+
+
     addBook: async (bookToAdd: Book): Promise<void> => {
         try {
             // Get existing books from localStorage (if any).
@@ -78,6 +80,17 @@ const dbManager = {
         } catch (error) {
             console.error('Error checking if book exists:', error);
             throw new Error('Failed to check if book exists');
+        }
+    },
+    getAllBooks: async (): Promise<Book[]> => {
+        try {
+            // Get existing books from localStorage (if any).
+            const existingBooksJson = localStorage.getItem('books');
+            const existingBooks = existingBooksJson ? JSON.parse(existingBooksJson) : [];
+            return existingBooks;
+        } catch (error) {
+            console.error('Error getting all books:', error);
+            throw new Error('Failed to get all books');
         }
     },
 };
