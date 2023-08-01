@@ -1,7 +1,6 @@
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffffff, #d9dfff); /* Gradient background */
 }
 
 .book-shop-container {
@@ -20,6 +19,7 @@ body {
     margin-bottom: 20px; /* Add some space below the title */
     text-shadow: 2px 2px 4px rgba(0, 0, 0.2, 0.65); /* Text shadow */
 }
+
 .view-toggle {
     display: flex;
     align-items: center; /* Align the buttons vertically in the center */
@@ -41,4 +41,21 @@ body {
 .view-toggle-btn.active {
     background-color: white;
     color: blue;
+}
+
+/* Styles specifically for mobile devices */
+@media (max-width: 767px) {
+    .book-shop-title {
+        font-size: 64px; /* Reduce the font size for mobile */
+    }
+
+    .view-toggle-btn {
+        font-size: 16px; /* Reduce the font size for the buttons on mobile */
+        background-color: red; /* Change the background color to make it "stink" on mobile */
+    }
+
+    .view-toggle-btn.active {
+        background-color: red;
+        color: white;
+    }
 }

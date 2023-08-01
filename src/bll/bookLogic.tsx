@@ -61,3 +61,14 @@ export const useUpdateUI = (setBooks: React.Dispatch<React.SetStateAction<Book[]
             .catch((error: any) => console.error('Error getting all books:', error));
     }, [setBooks]); // Make sure to include setBooks in the dependency array to prevent stale closure
 };
+
+export const handleReadMore = (
+    bookId: string,
+    books: Book[],
+    setSelectedBook: React.Dispatch<React.SetStateAction<Book | null>>
+) => {
+    const book = books.find((book) => book.id === bookId);
+    if (book) {
+        setSelectedBook(book);
+    }
+};

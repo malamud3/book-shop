@@ -1,11 +1,13 @@
 import React from 'react';
-import {Book} from "../../../models/book";
+import { Book } from '../../../models/book';
 
 interface CardTableViewProps {
     books: Book[];
+
 }
 
 const CardTableView: React.FC<CardTableViewProps> = ({ books }) => {
+
     return (
         <div className="card-table-view">
             {books.map((book) => (

@@ -4,8 +4,8 @@ import '../CardTableView/cardTableView.css'; // Import the CSS file for CardTabl
 import BookActions from '../bookActions/bookActions';
 import CardBook from '../../cardBook/cardBook';
 import { Book } from '../../../models/book';
-import { deleteBook, useUpdateUI } from '../../../bll/bookLogic';
-import CardTableView from '../CardTableView/cardTableView'; // Import the CardTableView component
+import CardTableView from '../CardTableView/cardTableView';
+import {deleteBook, useUpdateUI} from "../../../bll/bookLogic"; // Import the CardTableView component
 
 interface MatrixBookTableProps {
     cardStyle?: boolean;

@@ -24,10 +24,10 @@ const BookShop: React.FC = () => {
             <h1 className="book-shop-title">Book Shop</h1>
             <div className="view-toggle">
                 <button className={`view-toggle-btn ${isCardView ? '' : 'active'}`} onClick={handleCardView}>
-                    <i className="fas fa-th-large"></i> {/* Font Awesome th-large icon */}
+                    <i className="fas fa-th-large"></i>
                 </button>
                 <button className={`view-toggle-btn ${isCardView ? 'active' : ''}`} onClick={handleTableView}>
-                    <i className="fas fa-list"></i> {/* Font Awesome list icon */}
+                    <i className="fas fa-list"></i>
                 </button>
             </div>
 
