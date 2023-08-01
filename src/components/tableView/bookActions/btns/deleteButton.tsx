@@ -4,17 +4,14 @@ import bookService  from "../../../../dal/bookService";
 
 interface DeleteButtonProps {
     book: Book;
-    onBookDelete: (bookId: string) => void;
 
 }
 
-const DeleteButton: React.FC<DeleteButtonProps> = ({ book, onBookDelete }) => {
+const DeleteButton: React.FC<DeleteButtonProps> = ({ book }) => {
     const handleDeleteButtonClick = () => {
         bookService
             .deleteBook(book.id)
             .then(() => {
-                // Call the onBookDelete callback after successful deletion
-                onBookDelete(book.id);
             })
             .catch((error) => {
                 console.error('Failed to delete the book:', error);
