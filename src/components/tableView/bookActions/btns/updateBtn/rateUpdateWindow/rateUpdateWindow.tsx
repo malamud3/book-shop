@@ -7,6 +7,7 @@ interface RateUpdateWindowProps {
     onUpdateRate: (newRate: number) => void;
     onRateChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onClose: () => void;
+    onBookModify: (modifiedBook: Book) => void;
 }
 
 const RateUpdateWindow: React.FC<RateUpdateWindowProps> = ({
@@ -14,6 +15,7 @@ const RateUpdateWindow: React.FC<RateUpdateWindowProps> = ({
                                                                onUpdateRate,
                                                                onRateChange,
                                                                onClose,
+                                                               onBookModify
                                                            }) => {
     const handleUpdateButtonClick = () => {
         onUpdateRate(book.rate);
@@ -21,6 +23,9 @@ const RateUpdateWindow: React.FC<RateUpdateWindowProps> = ({
             .catch((error) => {
                 console.error('Error modifying book rate:', error);
             });
+        const modifiedBook = { ...book, };
+
+        onBookModify(modifiedBook);
     };
 
     return (

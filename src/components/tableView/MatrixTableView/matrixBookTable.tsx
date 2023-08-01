@@ -18,7 +18,17 @@ const MatrixBookTable: React.FC<MatrixBookTableProps> = ({ cardStyle, books }) =
 
     useUpdateUI(setBooks);
 
+    // Callback function to handle book deletion
+    const handleBookDelete = useCallback((deletedBookId: string) => {
+        setBooks(prevBooks => prevBooks.filter(book => book.id !== deletedBookId));
+    }, []);
 
+    // Callback function to handle book modification
+    const handleBookModify = useCallback((modifiedBook: Book) => {
+        setBooks(prevBooks =>
+            prevBooks.map(book => (book.id === modifiedBook.id ? modifiedBook : book))
+        );
+    }, []);
 
     return (
         <div>
@@ -43,6 +53,8 @@ const MatrixBookTable: React.FC<MatrixBookTableProps> = ({ cardStyle, books }) =
                             <td>
                                 <BookActions
                                     book={book}
+                                    onBookDelete={handleBookDelete}
+                                    onBookModify={handleBookModify}
                                 />
                             </td>
                         </tr>

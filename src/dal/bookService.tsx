@@ -75,19 +75,6 @@ export const addSelectedBook = async (
     }
 };
 
-export const deleteBook = async (
-    bookId: string,
-    setBooks: React.Dispatch<React.SetStateAction<Book[]>>,
-): Promise<void> => {
-    try {
-        await bookService.deleteBook(bookId);
-
-        // Remove the book from table.
-        setBooks((prevBooks) => prevBooks.filter((book) => book.id !== bookId));
-    } catch (error) {
-        console.error('Error deleting book:', error);
-    }
-};
 
 export const useUpdateUI = (setBooks: React.Dispatch<React.SetStateAction<Book[]>>): void => {
     useEffect(() => {
@@ -98,15 +85,6 @@ export const useUpdateUI = (setBooks: React.Dispatch<React.SetStateAction<Book[]
     }, [setBooks]); // Make sure to include setBooks in the dependency array to prevent stale closure
 };
 
-export const handleReadMore = (
-    bookId: string,
-    books: Book[],
-    setSelectedBook: React.Dispatch<React.SetStateAction<Book | null>>
-): void => {
-    const book = books.find((book) => book.id === bookId);
-    if (book) {
-        setSelectedBook(book);
-    }
-};
+
 
 export default bookService;

@@ -4,9 +4,10 @@ import { Book } from "../../../../../models/book";
 
 interface UpdateButtonProps {
     book: Book;
+    onBookModify: (modifiedBook: Book) => void;
 }
 
-const UpdateButton: React.FC<UpdateButtonProps> = ({ book }) => {
+const UpdateButton: React.FC<UpdateButtonProps> = ({ book, onBookModify }) => {
     const [showModal, setShowModal] = useState(false);
     const [newRate, setNewRate] = useState(book.rate);
 
@@ -39,6 +40,7 @@ const UpdateButton: React.FC<UpdateButtonProps> = ({ book }) => {
                     onUpdateRate={handleUpdateRate}
                     onRateChange={handleRateChange}
                     onClose={handleCloseModal}
+                    onBookModify={onBookModify}
                 />
             )}
         </div>
