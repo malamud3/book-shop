@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import './matrixBookTable.css';
 import '../CardTableView/cardTableView.css';
 import BookActions from '../bookActions/bookActions';
@@ -42,6 +42,7 @@ const MatrixBookTable: React.FC<MatrixBookTableProps> = ({ cardStyle, books }) =
                             <td>
                                 <BookActions
                                     book={book}
+                                    booksState={booksState}
                                 />
                             </td>
                         </tr>

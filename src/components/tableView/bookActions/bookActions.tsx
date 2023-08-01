@@ -8,16 +8,16 @@ import DeleteButton from './btns/deleteButton';
 
 interface BookActionsProps {
     book: Book;
-
+    booksState: Book[];
 }
 
-const BookActions: React.FC<BookActionsProps> = ({ book}) => {
+const BookActions: React.FC<BookActionsProps> = ({ book,booksState}) => {
 
     return (
         <div className="book-actions">
             <   ReadButton   book={book}  />
-            <   UpdateButton book={book} />
-            <   DeleteButton book={book} />
+            <   UpdateButton book={book}  />
+            <   DeleteButton book={book}  />
         </div>
     );
 };
